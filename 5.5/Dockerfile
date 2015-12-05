@@ -42,7 +42,8 @@ RUN cd /tmp && \
     php-soap \
     php-tidy \
     php-xml \
-    php-xmlrpc && \
+    php-xmlrpc \
+    php-pecl-xdebug && \
     mkdir /root/.composer && \
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
