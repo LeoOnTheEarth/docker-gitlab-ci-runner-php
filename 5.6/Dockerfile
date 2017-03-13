@@ -9,6 +9,7 @@ RUN cd /tmp && \
     rpm -Uvh remi-release-7*.rpm epel-release-latest-7*.rpm && \
     yum -y update && \
     yum --enablerepo=remi,remi-php56 install -y \
+    which \
     git \
     php \
     php-bcmath \
