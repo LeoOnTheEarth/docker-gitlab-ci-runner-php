@@ -49,11 +49,12 @@ RUN cd /tmp && \
     php-pecl-redis \
     php-pecl-xdebug \
     php-pecl-zip && \
+    echo 'date.timezone="UTC"' > /etc/php.d/docker-gitlab-ci-runner-php.ini && \
+    echo 'phar.readonly=off' >> /etc/php.d/docker-gitlab-ci-runner-php.ini && \
     mkdir /root/.composer && \
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
     curl -LSs https://box-project.github.io/box2/installer.php | php && \
-    mv box.phar /usr/local/bin/box && \
-    echo 'date.timezone="UTC"' > /etc/php.d/docker-gitlab-ci-runner-php.ini
+    mv box.phar /usr/local/bin/box
 
 VOLUME ["/root/.composer"]
