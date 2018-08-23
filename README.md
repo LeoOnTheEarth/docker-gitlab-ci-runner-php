@@ -8,6 +8,7 @@ Support PHP 5.4, 5.5, 5.6, 7.0
 - PHP 5.6: `leoontheearth/docker-gitlab-ci-runner-php:5.6` (latest)
 - PHP 7.0: `leoontheearth/docker-gitlab-ci-runner-php:7.0`
 - PHP 7.1: `leoontheearth/docker-gitlab-ci-runner-php:7.1`
+- PHP 7.2: `leoontheearth/docker-gitlab-ci-runner-php:7.2`
 
 ## Run containers
 
