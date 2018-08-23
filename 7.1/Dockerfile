@@ -44,6 +44,9 @@ RUN cd /tmp && \
     php-tidy \
     php-xml \
     php-xmlrpc \
+    php-pecl-memcache \
+    php-pecl-memcached \
+    php-pecl-redis \
     php-pecl-xdebug \
     php-pecl-zip && \
     mkdir /root/.composer && \

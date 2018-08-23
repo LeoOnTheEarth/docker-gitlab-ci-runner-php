@@ -44,6 +44,9 @@ RUN cd /tmp && \
     php-tidy \
     php-xml \
     php-xmlrpc \
+    php-pecl-memcache \
+    php-pecl-memcached \
+    php-pecl-redis \
     php-pecl-xdebug && \
     mkdir /root/.composer && \
     curl -sS https://getcomposer.org/installer | php && \
