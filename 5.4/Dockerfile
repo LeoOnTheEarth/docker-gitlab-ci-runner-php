@@ -8,7 +8,7 @@ RUN cd /tmp && \
     curl -O http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
     rpm -Uvh remi-release-7*.rpm epel-release-latest-7*.rpm && \
     yum -y update && \
-    yum --enablerepo=remi install -y \
+    yum --enablerepo=remi,remi-php54 install -y \
     which \
     git \
     php \
