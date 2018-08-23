@@ -1,5 +1,5 @@
 # docker-gitlab-ci-runner-php (PHP 7.0)
-FROM centos:latest
+FROM centos:7
 MAINTAINER  Leo "leo.on.the.earth@gmail.com"
 
 # Install epel repo & remi repo & PHP 7.0 & composer
