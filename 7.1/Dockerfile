@@ -11,6 +11,7 @@ RUN cd /tmp && \
     yum --enablerepo=remi,remi-php71 install -y \
     which \
     git \
+    unzip gzip tar bzip2 \
     php \
     php-bcmath \
     php-cli \
