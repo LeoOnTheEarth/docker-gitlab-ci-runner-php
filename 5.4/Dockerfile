@@ -2,7 +2,7 @@
 FROM centos:7
 MAINTAINER  Leo "leo.on.the.earth@gmail.com"
 
-# Install epel repo & remi repo & PHP 5.4 & composer
+# Install epel repo & remi repo & PHP 5.4 & composer & box.phar
 RUN cd /tmp && \
     curl -O https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     curl -O http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
@@ -48,6 +48,8 @@ RUN cd /tmp && \
     mkdir /root/.composer && \
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
+    curl -LSs https://box-project.github.io/box2/installer.php | php && \
+    mv box.phar /usr/local/bin/box && \
     echo 'date.timezone="UTC"' > /etc/php.d/docker-gitlab-ci-runner-php.ini
 
 VOLUME ["/root/.composer"]
