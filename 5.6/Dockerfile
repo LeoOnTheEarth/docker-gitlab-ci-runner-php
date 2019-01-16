@@ -5,7 +5,7 @@ MAINTAINER  Leo "leo.on.the.earth@gmail.com"
 # Install epel repo & remi repo & PHP 5.6 & composer & box.phar
 RUN cd /tmp && \
     curl -O https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
-    curl -O http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
+    curl -O https://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
     rpm -Uvh remi-release-7*.rpm epel-release-latest-7*.rpm && \
     yum -y update && \
     yum --enablerepo=remi,remi-php56 install -y \
