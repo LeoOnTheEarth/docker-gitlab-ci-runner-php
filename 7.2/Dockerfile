@@ -53,9 +53,11 @@ RUN cd /tmp && \
     echo 'date.timezone="UTC"' > /etc/php.d/docker-gitlab-ci-runner-php.ini && \
     echo 'phar.readonly=off' >> /etc/php.d/docker-gitlab-ci-runner-php.ini && \
     mkdir /root/.composer && \
+    mkdir /root/.ssh && \
+    mkdir /cache && \
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
     curl -LSs https://box-project.github.io/box2/installer.php | php && \
     mv box.phar /usr/local/bin/box
 
-VOLUME ["/root/.composer"]
+VOLUME ["cache", "/root/.composer", "/root/.ssh"]
