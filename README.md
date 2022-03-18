@@ -22,5 +22,5 @@ docker run -t -i --rm -v /root/.composer:/root/.composer leoontheearth/docker-gi
 cd /tmp
 git clone https://github.com/LeoOnTheEarth/docker-gitlab-ci-runner-php.git
 # Build for PHP 7.2
-docker build -t leoontheearth/docker-gitlab-ci-runner-php:7.2 /tmp/docker-gitlab-ci-runner-php/7.2
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.2 /tmp/docker-gitlab-ci-runner-php/7.2
 ```
