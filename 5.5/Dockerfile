@@ -49,14 +49,16 @@ RUN cd /tmp && \
     php-pecl-memcached \
     php-pecl-redis \
     php-pecl-xdebug && \
+    yum clean all && \
     echo 'date.timezone="UTC"' > /etc/php.d/docker-gitlab-ci-runner-php.ini && \
     echo 'phar.readonly=off' >> /etc/php.d/docker-gitlab-ci-runner-php.ini && \
     mkdir /root/.composer && \
     mkdir /root/.ssh && \
     mkdir /cache && \
-    curl -sS https://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer && \
-    curl -LSs https://box-project.github.io/box2/installer.php | php && \
-    mv box.phar /usr/local/bin/box
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+    php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
+    php composer-setup.php && \
+    php -r "unlink('composer-setup.php');" && \
+    mv composer.phar /usr/local/bin/composer
 
-VOLUME ["cache", "/root/.composer", "/root/.ssh"]
+VOLUME ["/cache", "/root/.composer", "/root/.ssh"]
