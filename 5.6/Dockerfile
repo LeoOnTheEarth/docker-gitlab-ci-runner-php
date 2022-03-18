@@ -60,7 +60,5 @@ RUN cd /tmp && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer
-RUN php -r 'echo "[credential]\n    helper = store\n";' > /root/.gitconfig && \
-    touch /root/.git-credentials
 
 VOLUME ["/cache", "/root/.composer", "/root/.ssh"]
