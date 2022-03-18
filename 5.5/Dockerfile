@@ -12,6 +12,7 @@ RUN cd /tmp && \
     which \
     git \
     unzip gzip tar bzip2 \
+    rsync \
     php \
     php-bcmath \
     php-cli \
