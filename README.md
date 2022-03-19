@@ -23,18 +23,18 @@ docker run -t -i --rm -v /root/.composer:/root/.composer leoontheearth/docker-gi
 ## Build Images
 
 ```bash
-DIR=/tmp
-cd $DIR
+cd /tmp
 git clone https://github.com/LeoOnTheEarth/docker-gitlab-ci-runner-php.git
+cd docker-gitlab-ci-runner-php
 
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:8.1 -f Dockerfile_81 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:8.0 -f Dockerfile_80 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.4 -f Dockerfile_74 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.3 -f Dockerfile_73 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.2 -f Dockerfile_72 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.1 -f Dockerfile_71 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.0 -f Dockerfile_70 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:5.6 -f Dockerfile_56 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:5.5 -f Dockerfile_55 $DIR/docker-gitlab-ci-runner-php
-docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:5.4 -f Dockerfile_54 $DIR/docker-gitlab-ci-runner-php
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:8.1 -f Dockerfile_81 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:8.0 -f Dockerfile_80 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.4 -f Dockerfile_74 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.3 -f Dockerfile_73 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.2 -f Dockerfile_72 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.1 -f Dockerfile_71 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:7.0 -f Dockerfile_70 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:5.6 -f Dockerfile_56 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:5.5 -f Dockerfile_55 ./
+docker build --rm -t leoontheearth/docker-gitlab-ci-runner-php:5.4 -f Dockerfile_54 ./
 ```
