@@ -1,5 +1,5 @@
-Docker GitLab CI Runner for PHP
-===============================
+PHP Docker Images for running with GitLab CI
+============================================
 
 Support PHP versions:
 
