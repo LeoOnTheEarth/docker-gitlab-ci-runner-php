@@ -1,113 +1,102 @@
 default:
-  image: docker:stable
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
   before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY/$CI_PROJECT_PATH
-    - docker build -t $CI_REGISTRY/$CI_PROJECT_PATH:$PHP_VERSION -f $DOCKERFILE_FILENAME .
-    - docker push $CI_REGISTRY/$CI_PROJECT_PATH:$PHP_VERSION
-
-variables:
-  DOCKERFILE_FILENAME: 'Dockerfile'
-  PHP_VERSION: 'latest'
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY_IMAGE
+    - docker pull $REGISTRY_IMAGE || true
+    - docker build --cache-from $REGISTRY_IMAGE -t $REGISTRY_IMAGE -f $DOCKERFILE .
+    - docker push $REGISTRY_IMAGE
 
 stages:
   - build
 
 build_php_81:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_81'
-    PHP_VERSION: '8.1'
+    DOCKERFILE: "Dockerfile_81"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:8.1"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_80:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_80'
-    PHP_VERSION: '8.0'
+    DOCKERFILE: "Dockerfile_80"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:8.0"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_74:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_74'
-    PHP_VERSION: '7.4'
+    DOCKERFILE: "Dockerfile_74"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:7.4"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_73:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_73'
-    PHP_VERSION: '7.3'
+    DOCKERFILE: "Dockerfile_73"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:7.3"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_72:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_72'
-    PHP_VERSION: '7.2'
+    DOCKERFILE: "Dockerfile_72"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:7.2"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_71:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_71'
-    PHP_VERSION: '7.1'
+    DOCKERFILE: "Dockerfile_71"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:7.1"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_70:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_70'
-    PHP_VERSION: '7.0'
+    DOCKERFILE: "Dockerfile_70"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:7.0"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_56:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_56'
-    PHP_VERSION: '5.6'
+    DOCKERFILE: "Dockerfile_56"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:5.6"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_55:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_55'
-    PHP_VERSION: '5.5'
+    DOCKERFILE: "Dockerfile_55"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:5.5"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
 
 build_php_54:
   stage: build
-  only:
-    - master
+  only: [master]
   variables:
-    DOCKERFILE_FILENAME: 'Dockerfile_54'
-    PHP_VERSION: '5.4'
+    DOCKERFILE: "Dockerfile_54"
+    REGISTRY_IMAGE: "$CI_REGISTRY_IMAGE:5.4"
   script:
-    echo "build $DOCKERFILE_FILENAME done!"
+    - echo "build $DOCKERFILE done!"
